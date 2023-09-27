@@ -40,13 +40,13 @@ $(document).ready(function () {
     window.location.href = "player/vjs.html?sv=" + $("#link").val();
   });
   $('#clickply').click(function () {
-    window.location.href = "player/m3u.html?sv=" + $("#link").val();
+    window.location.href = "player/x.html?sv=" + $("#link").val();
   });
   $("#clickclapper").click(function () {
     window.location.href = "player/clapper.html?sv=" + $("#link").val();
   });
   $("#clickkaltura").click(function () {
-    window.location.href = "player/plyr.html?sv=" + $('#link').val();
+    window.location.href = "player/m3u.html?sv=" + $('#link').val();
   });
   $("#clicknetflix").click(function () {
     window.location.href = "//01234.fun/#/?url=" + $("#link").val();
