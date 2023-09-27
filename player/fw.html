@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Flow Player</title>
+    
+
+      <!-- jQuery library -->  
+<script src='//code.jquery.com/jquery-1.12.4.js'></script>
+<!-- Flowplayer library -->
+<link rel="stylesheet" href="//releases.flowplayer.org/7.2.4/skin/skin.css">
+<script src="//releases.flowplayer.org/7.2.4/flowplayer.min.js"></script><br />
+<script src="//releases.flowplayer.org/hlsjs/flowplayer.hlsjs.light.min.js">
+
+
+
+    </head>
+ 
+
+        <script>
+function getParam ( sname )
+{
+  var params = location.search.substr(location.search.indexOf("?")+1);
+  var sval =  params.replace("sv=", "");
+  
+  return sval;
+}
+var sv = getParam("sv");
+</script>
+  
+<script>
+  var responseText = ''+sv+'';
+  urlArry = responseText.split(',');
+  start = true;
+  num_of_urlArry = urlArry.length;
+  index_of_urlArry = 0;
+</script>
+
+
+<body>   
+         
+    
+       
+
+<script type="text/javascript"> 
+  document.writeln("<div data-live="true" data-ratio="0.5625" data-share="false" class="flowplayer"><video data-title="Live stream"><source type="application/x-mpegurl" src="//adtv.ercdn.net/adsport1/adsport1.m3u8"></video></div>"); </script>
+       
+
+
+       
+  
+  
+    </body>
+</html>
