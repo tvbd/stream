@@ -14,7 +14,7 @@ function _0x415e(_0x2a5773, _0xbdbcf9) {
 }
 var _0x2d72eb = _0x415e;
 function _0x54cf() {
-  var _0x3b099b = ['player/js.html?sv=', '#clickclapper', '#clickvjs', '#clickkaltura', 'ready', 'click', 'player/oven.html?sv=', '3405XrSkFx', '321213yYBNCx', 'player/clapper.html?sv=', 'val', 'filter', 'href', '7915257ZqdtrX', '.col-sm-4', '3427216GLOOzU', 'toggle', '#clickjs', '#search', '#link', '3337271ldYQHU', 'text', 'toLowerCase', 'location', 'indexOf', '2524176ixXQfA', '186616phrAOC', '8FYnOsT', 'player/kaltura.html?sv=', 'player/vjs.html?sv=', '2756mbGhPN'];
+  var _0x3b099b = ['player/js.html?sv=', '#clickclapper', '#clickvjs', '#clickoven', 'ready', 'click', 'player/plyr.html?sv=', '3405XrSkFx', '321213yYBNCx', 'player/clapper.html?sv=', 'val', 'filter', 'href', '7915257ZqdtrX', '.col-sm-4', '3427216GLOOzU', 'toggle', '#clickjs', '#search', '#link', '3337271ldYQHU', 'text', 'toLowerCase', 'location', 'indexOf', '2524176ixXQfA', '186616phrAOC', '8FYnOsT', 'player/oven.html?sv=', 'player/vjs.html?sv=', '2756mbGhPN'];
   _0x54cf = function () {
     return _0x3b099b;
   };
@@ -40,13 +40,13 @@ $(document).ready(function () {
     window.location.href = "player/vjs.html?sv=" + $("#link").val();
   });
   $('#clickply').click(function () {
-    window.location.href = "player/kaltura.html?sv=" + $("#link").val();
+    window.location.href = "player/oven.html?sv=" + $("#link").val();
   });
   $("#clickclapper").click(function () {
     window.location.href = "player/clapper.html?sv=" + $("#link").val();
   });
   $("#clickkaltura").click(function () {
-    window.location.href = "player/oven.html?sv=" + $('#link').val();
+    window.location.href = "player/plyr.html?sv=" + $('#link').val();
   });
   $("#clicknetflix").click(function () {
     window.location.href = "player/js.html?sv=" + $("#link").val();
