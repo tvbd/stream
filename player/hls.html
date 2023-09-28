@@ -1,3 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hls Player</title>
+</head>
+<body>
+ <script>
+function getParam ( sname )
+{
+  var params = location.search.substr(location.search.indexOf("?")+1);
+  var sval =  params.replace("sv=", "");
+  
+  return sval;
+}
+var sv = getParam("sv");
+</script>
+<script>
+  var responseText = ''+sv+'';
+  urlArry = responseText.split(',');
+  start = true;
+  num_of_urlArry = urlArry.length;
+  index_of_urlArry = 0;
+</script>
+
+
 
 <link href="https://vipotv.com/wp-content/cache/flying-press/2d0f37e0bdd4.video-js.css" rel="stylesheet" />
 <link href="https://vipotv.com/wp-content/cache/flying-press/94c3bf46bb39.videojs.min.css" rel="stylesheet" />
@@ -20,3 +47,9 @@ var player = videojs('example-video');
 <script src="https://vipotv.com/wp-content/themes/livetv/assets/js/video-fix.js?ver=17f8335e88ce"></script>
 
 <script src="https://vipotv.com/wp-content/themes/livetv/assets/js/main.js?ver=0fa2a3a376aa"></script>
+
+
+
+</body>
+</html>
+	
