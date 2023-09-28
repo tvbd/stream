@@ -26,31 +26,24 @@ var sv = getParam("sv");
 
 
 
-<link href="https://vipotv.com/wp-content/cache/flying-press/2d0f37e0bdd4.video-js.css" rel="stylesheet" />
-<link href="https://vipotv.com/wp-content/cache/flying-press/94c3bf46bb39.videojs.min.css" rel="stylesheet" />
+<link href="css/videojs-skin.css" rel="stylesheet" />
+<link href="css/videojs.min.css" rel="stylesheet" />
 
 <style type="text/css">  
 #example-video,#hls-example{height: 100vh;width:100vw; padding:0px;position:fixed!important;bottom:0;right:0;top:0;left:0;z-index:999!important;}
 </style>
-
-<video id="hls-example" class="video-js vjs-default-skin" controls preload="auto">
-<source type="application/x-mpegURL" src="https://xlbor37ydvaj-hls-live.wmncdn.net/firstindianewstv1/live.stream/index.m3u8">
-</video>
 <script>
-var player = videojs('example-video');
-						player.play();
-					</script>
+document.write('<video id="hls-example" class="video-js vjs-default-skin" controls preload="auto"><source type="application/x-mpegURL" src="\'+sv+\'"></video>');
+</script>
 
+	
+<script>
+var player = videojs('example-video');  player.play();  </script>
 
-
-
-<script src="https://vipotv.com/wp-content/cache/flying-press/1d902fa9c05a.video.js"></script>
-<script src="https://vipotv.com/wp-content/themes/livetv/assets/js/videojs-contrib-hls.js?ver=513a30b2764f"></script>
-<script src="https://vipotv.com/wp-content/themes/livetv/assets/js/video-fix.js?ver=17f8335e88ce"></script>
-
-<script src="https://vipotv.com/wp-content/themes/livetv/assets/js/main.js?ver=0fa2a3a376aa"></script>
-
-
+<script src="js/videojs-play.js"></script>
+<script src="js/videojs-hls.js"></script>
+<script src="js/videojs-vediofix.js"></script>
+<script src="js/videojs-man.js"></script>
 
 </body>
 </html>
