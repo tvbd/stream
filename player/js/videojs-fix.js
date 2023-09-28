@@ -1,0 +1,2 @@
+var $=jQuery;function sticky_relocate(){var window_top=$(window).scrollTop();var div_top=$('#fixcontent').offset().top;if(window_top>div_top){$('#fix_fixed').addClass('fix');$('#fixcontent').height($('#fix_fixed').outerHeight());$('#player1').addClass('fixon');}else{$('#fix_fixed').removeClass('fix');$('#fixcontent').height(0);$('#player1').removeClass('fixon');}}
+$(function(){$(window).scroll(sticky_relocate);sticky_relocate();});
