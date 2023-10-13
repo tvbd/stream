@@ -34,10 +34,9 @@
  top:-50%;
  height:200%
 }
-#player, iframe{height: 100vh;width:100vw; padding:0px;position:fixed!important;bottom:0;right:0;top:0;left:0;z-index:999!important;}
+
 </style>
 
-<script src="//cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 
 <style>
 .loading {
@@ -158,9 +157,8 @@ var sv = getParam("sv");
 </div>
 
 <script>
-document.write('<div id="player" data-plyr-provider="youtube" data-plyr-embed-id=""+sv+""></div>');
+document.writeln("<div id=\"player\" data-plyr-provider=\"youtube\" data-plyr-embed-id=\"\"+sv+\"\"></div>");
 </script>
-
 
 <script>const player = new Plyr('#player', {
 controls:["play-large","play","progress","current-time","mute","volume","captions","settings","fullscreen","pip","airplay"],tooltips:{controls:!0},quailty:{ default: 'default', options: ['hd2160', 'hd1440', 'hd1080', 'hd720', 'large', 'medium', 'small', 'tiny', 'default'] }
@@ -172,6 +170,7 @@ setTimeout(videovisible, 3000)
 function videovisible() {
     document.getElementById('loading').style.display = 'none'
 }
+
 document.addEventListener("DOMContentLoaded", () => {
     const e = document.querySelector("video"),
         n = e.getElementsByTagName("source")[0].src,
@@ -198,6 +197,8 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         new Plyr(e, o)
     }
+
+
 });
 </script>
 
