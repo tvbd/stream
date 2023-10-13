@@ -1,0 +1,210 @@
+
+
+<html>
+
+<head>
+<title>PLY YT PLAYER</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+<script src='//cdn.plyr.io/3.2.4/plyr.js'></script>
+<link rel='stylesheet' href='//cdn.plyr.io/3.2.4/plyr.css'>
+
+<style>
+.plyr--full-ui input[type=range] {
+ color:red!important
+}
+.plyr--video .plyr__controls .plyr__control[aria-expanded=true] {
+ background:red
+}
+.plyr__control--overlaid:hover {
+ background:red
+}
+.plyr__control--overlaid {
+ background:red
+}
+.plyr__control:hover {
+ background:red!important
+}
+.plyr__control--overlaid {
+ padding:15px
+}
+.plyr__video-embed iframe {
+ top:-50%;
+ height:200%
+}
+#player, iframe{height: 100vh;width:100vw; padding:0px;position:fixed!important;bottom:0;right:0;top:0;left:0;z-index:999!important;}
+</style>
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
+<style>
+.loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+    }
+    
+    .loading-text {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        width: 100%;
+        height: 100px;
+        line-height: 100px;
+    }
+    
+    .loading-text span {
+        display: inline-block;
+        margin: 0 5px;
+        color: red;
+        font-family: 'Quattrocento Sans', sans-serif;
+    }
+    
+    .loading-text span:nth-child(1) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 0s infinite linear alternate;
+    }
+    
+    .loading-text span:nth-child(2) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 0.2s infinite linear alternate;
+    }
+    
+    .loading-text span:nth-child(3) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 0.4s infinite linear alternate;
+    }
+    
+    .loading-text span:nth-child(4) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 0.6s infinite linear alternate;
+    }
+    
+    .loading-text span:nth-child(5) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 0.8s infinite linear alternate;
+    }
+    
+    .loading-text span:nth-child(6) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 1s infinite linear alternate;
+    }
+    
+    .loading-text span:nth-child(7) {
+        filter: blur(0px);
+        animation: blur-text 1.5s 1.2s infinite linear alternate;
+    }
+    
+    @keyframes blur-text {
+        0% {
+            filter: blur(0px);
+        }
+        100% {
+            filter: blur(4px);
+        }
+    }
+
+  
+
+</style>
+
+
+
+</head>
+
+<body>
+  
+  <script>
+function getParam ( sname )
+{
+  var params = location.search.substr(location.search.indexOf("?")+1);
+  var sval =  params.replace("sv=", "");
+  
+  return sval;
+}
+var sv = getParam("sv");
+</script>
+<script>
+  var responseText = ''+sv+'';
+  urlArry = responseText.split(',');
+  start = true;
+  num_of_urlArry = urlArry.length;
+  index_of_urlArry = 0;
+</script>
+
+
+ <div id="loading" class="loading">
+<div class="loading-text">
+    <span class="loading-text-words">L</span>
+    <span class="loading-text-words">O</span>
+    <span class="loading-text-words">A</span>
+    <span class="loading-text-words">D</span>
+    <span class="loading-text-words">I</span>
+    <span class="loading-text-words">N</span>
+    <span class="loading-text-words">G</span>
+
+
+</div>
+</div>
+
+<script>
+document.write('<div id=\"player\" data-plyr-provider=\"youtube\" data-plyr-embed-id=\"\"+sv+\"\"></div>');
+</script>
+
+
+<script>const player = new Plyr('#player', {
+controls:["play-large","play","progress","current-time","mute","volume","captions","settings","fullscreen","pip","airplay"],tooltips:{controls:!0},quailty:{ default: 'default', options: ['hd2160', 'hd1440', 'hd1080', 'hd720', 'large', 'medium', 'small', 'tiny', 'default'] }
+});</script>
+
+<script>
+setTimeout(videovisible, 3000)
+
+function videovisible() {
+    document.getElementById('loading').style.display = 'none'
+}
+document.addEventListener("DOMContentLoaded", () => {
+    const e = document.querySelector("video"),
+        n = e.getElementsByTagName("source")[0].src,
+        o = {};
+    if (Hls.isSupported()) {
+        var config = {
+            maxMaxBufferLength: 100,
+        };
+        const t = new Hls(config);
+        t.loadSource(n), t.on(Hls.Events.MANIFEST_PARSED, function(n, l) {
+            const s = t.levels.map(e => e.height);
+            o.quality = {
+                default: s[0],
+                options: s,
+                forced: !0,
+                onChange: e => (function(e) {
+                    window.hls.levels.forEach((n, o) => {
+                        n.height === e && (window.hls.currentLevel = o)
+                    })
+                })(e)
+            };
+            new Plyr(e, o)
+        }), t.attachMedia(e), window.hls = t
+    } else {
+        new Plyr(e, o)
+    }
+});
+</script>
+
+
+</body>
+
+
+</html> 
+
+
