@@ -158,7 +158,7 @@ var sv = getParam("sv");
 </div>
 
 <script>
-document.writeln("<div id=\"player\" data-plyr-provider=\"youtube\" data-plyr-embed-id=\"\"+sv+\"\"></div>");
+document.writeln("<div id=\"player\" data-plyr-provider=\"youtube\" data-plyr-embed-id=\"'+sv+'\"></div>");
 </script>
 
 <script>const player = new Plyr('#player', {
