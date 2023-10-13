@@ -3,8 +3,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Clapper Player</title>
+    <title>Clapper Player</title>	
 </head>
+
+<style> html{scrollbar-width:thin}html,body{width:100%!important;height:100%!important;color:#1c2733;margin: 0px auto;padding:0;background:#171717;}</style>
+	
 <body>
  <script>
 function getParam ( sname )
@@ -24,16 +27,16 @@ var sv = getParam("sv");
   index_of_urlArry = 0;
 </script>
 
- <script src='//cdn.jsdelivr.net/npm/clappr/dist/clappr.min.js'></script>
+<script src='//cdn.jsdelivr.net/npm/clappr/dist/clappr.min.js'></script>
 <script src='//cdn.jsdelivr.net/npm/clappr-stats/dist/clappr-stats.min.js'></script>
 <script src='//cdn.jsdelivr.net/npm/clappr-nerd-stats/dist/clappr-nerd-stats.min.js'></script>
 <script src="//cdn.jsdelivr.net/gh/clappr/clappr-level-selector-plugin@latest/dist/level-selector.min.js"></script>
-  <script src='//cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js'></script>
+<script src='//cdn.jsdelivr.net/npm/clappr-pip@latest/dist/clappr-pip.min.js'></script>
 <script src='//cdn.jsdelivr.net/npm/dash-shaka-playback@latest/dist/dash-shaka-playback.min.js'></script>
 <script src='//cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/dist/clappr-playback-rate-plugin.min.js'></script>
- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@latest/dist/hlsjs-playback.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@latest/dist/hlsjs-playback.min.js"></script>
 <script src="//cdn.jsdelivr.net/clappr.chromecast-plugin/latest/clappr-chromecast-plugin.js"></script>
- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/clappr-markers-plugin@latest/dist/clappr-markers-plugin.js"></script>    
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/clappr-markers-plugin@latest/dist/clappr-markers-plugin.js"></script>    
 <script src="//cdn.jsdelivr.net/npm/clappr-capture-plugin@latest/dist/clappr-capture-plugin.js"></script> 
 
   
@@ -107,19 +110,11 @@ var player = new Clappr.Player(
 player.core.mediaControl.on('capture:base64', (b64) => {
   var myWindow = window.open("", "PictureWindow");
   myWindow.document.write(`<img src="${b64}" />`);
-    })); */
-
-
-
+    })); 
 };
-
-
       </script>
 
-
-  
-
 <style>:root{--plyr-video-control-background-hover:rgba(156,136,255,.9);--plyr-color-main:#9c88ff}body{box-sizing:border-box;background:#000;font-family:sans-serif;margin:0}*{text-decoration:none}.albaplayer_videos_channel{position:absolute;z-index:999;left:8px;top:6px;right:8px;height:0}.albaplayer_videos_channel .button{background:#c60303;cursor:pointer;font-size:14px;float:left;display:block;border-radius:2px;height:25px;text-align:center;line-height:22px;text-shadow:0 1px 1px #000;color:#fff;padding:0 10px;font-family:sans-serif;font-weight:700;position:relative;z-index:99}.albaplayer_videos_channel .refresh{float:right}</style>
- <div class="albaplayer_videos_channel"><a class="button refresh" href="javascript:window.location.reload()">Refresh</a></div>
+<div class="albaplayer_videos_channel"><a class="button refresh" href="javascript:window.location.reload()">Refresh</a></div>
 </body>
 </html>
