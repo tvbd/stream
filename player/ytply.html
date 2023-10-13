@@ -12,7 +12,7 @@
 <link rel='stylesheet' href='//cdn.plyr.io/3.2.4/plyr.css'>
 
 <style>
- iframe{height: 100vh;width:100vw; padding:0px;position:fixed!important;bottom:0;right:0;top:0;left:0;z-index:999!important;}
+ #plyr__video-embed{height: 100vh;width:100vw; padding:0px;position:fixed!important;bottom:0;right:0;top:0;left:0;z-index:999!important;}
 .plyr--full-ui input[type=range] {
  color:red!important
 }
@@ -157,10 +157,12 @@ var sv = getParam("sv");
 </div>
 </div>
 
+ <div class="plyr__video-embed" id="player">
 <script>
-document.writeln("<div id=\"player\" data-plyr-provider=\"youtube\" data-plyr-embed-id=\"'+sv+'\"></div>");
+document.writeln('<iframe src=""+sv+"" allowfullscreen allowtransparency allow="autoplay"</iframe>');
 </script>
-
+</div>
+ 
 <script>const player = new Plyr('#player', {
 controls:["play-large","play","progress","current-time","mute","volume","captions","settings","fullscreen","pip","airplay"],tooltips:{controls:!0},quailty:{ default: 'default', options: ['hd2160', 'hd1440', 'hd1080', 'hd720', 'large', 'medium', 'small', 'tiny', 'default'] }
 });</script>
