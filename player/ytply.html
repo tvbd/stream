@@ -12,7 +12,7 @@
 <link rel='stylesheet' href='//cdn.plyr.io/3.2.4/plyr.css'>
 <script src="//cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <style>
- #plyr__video-embed{height: 100vh;width:100vw; padding:0px;position:fixed!important;bottom:0;right:0;top:0;left:0;z-index:999!important;}
+ #plyr__video-embed, iframe{height:100vh;width:100vw; padding:0px;position:fixed!important;bottom:0;right:0;top:0;left:0;z-index:999!important;overflow:hiddendden }
 .plyr--full-ui input[type=range] {color:red!important}
 .plyr--video .plyr__controls .plyr__control[aria-expanded=true] {background:red}
 .plyr__control--overlaid:hover {background:red}
@@ -109,7 +109,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<style>:root{--plyr-video-control-background-hover:rgba(156,136,255,.9);--plyr-color-main:#9c88ff}body{box-sizing:border-box;background:#000;font-family:sans-serif;margin:0}*{text-decoration:none}.albaplayer_videos_channel{position:absolute;z-index:999;left:8px;top:6px;right:8px;height:0}.albaplayer_videos_channel .button{background:;cursor:pointer;font-size:25px;float:left;display:block;border-radius:2px;height:20px;text-align:center;line-height:20px;text-shadow:0 1px 1px #000;color:#fff;padding:0 10px;font-family:sans-serif;position:relative;z-index:99}.albaplayer_videos_channel .refresh{float:left}</style>
+<div class="albaplayer_videos_channel"><a class="button refresh" href="javascript:window.location.reload()" title="Refresh Player">&#8634;</a></div>
 
+
+ 
 </body>
 
 
