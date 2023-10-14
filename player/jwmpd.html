@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JW 2 Player</title>
+</head>
+<body>
+
+
+<script data-cfasync="false" src="js/jw2.js"></script>
+		
+<style type="text/css">  
+html{overflow-x:hidden;scrollbar-width:thin;} body{-webkit-font-smoothing:antialiased;position:relative;top:0!important;margin:0;padding:0!important;width:100%;scrollbar-width: thin;background:#000} a{text-decoration:none}
+#jwplayerDiv{height: 100vh;width:100vw; padding:0px;position:fixed!important;bottom:0;right:0;top:0;left:0;z-index:999!important;}
+</style>
+
+  <script>
+function getParam ( sname )
+{
+  var params = location.search.substr(location.search.indexOf("?")+1);
+  var sval =  params.replace("sv=", "");
+  
+  return sval;
+}
+var sv = getParam("sv");
+
+</script>
+<script>
+  var responseText = ''+sv+'';
+  urlArry = responseText.split(',');
+  start = true;
+  num_of_urlArry = urlArry.length;
+  index_of_urlArry = 0;
+</script>
+  
+  
+<div style='position:fixed!important;;bottom:0;right:0;top:0;left:0;z-index:999!important;' id="jwplayerDiv"></div>
+
+
+            <script type = "text/JavaScript">
+            
+            jwplayer("jwplayerDiv").setup({
+                autostart: true,
+                pipIcon: "enabled",
+                title: "Live",
+                logo: {
+                    file: "",
+                    hide: "true"
+                },
+                file: ""+sv+"",
+                drm: {
+                    clearkey: {
+                         "keyId": "0003f2a72d21efd159d45a3a74decd84",
+
+                        "key": "df0ec40586d641f3d4728ab5fd62adc3"
+                      
+
+                    }
+                }
+            }); </script>
+
+ <style>:root{--plyr-video-control-background-hover:rgba(156,136,255,.9);--plyr-color-main:#9c88ff}body{box-sizing:border-box;background:#000;font-family:sans-serif;margin:0}*{text-decoration:none}.albaplayer_videos_channel{position:absolute;z-index:999;left:8px;top:6px;right:8px;height:0}.albaplayer_videos_channel .button{background:;cursor:pointer;font-size:25px;float:left;display:block;border-radius:2px;height:20px;text-align:center;line-height:20px;text-shadow:0 1px 1px #000;color:#fff;padding:0 10px;font-family:sans-serif;position:relative;z-index:99}.albaplayer_videos_channel .refresh{float:left}</style>
+<div class="albaplayer_videos_channel"><a class="button refresh" href="javascript:window.location.reload()" title="Refresh Player">&#8634;</a></div>   
+
+
+</body>
+</html>
