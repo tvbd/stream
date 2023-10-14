@@ -6,15 +6,14 @@
     <title>Clapper Player</title>	
 </head>
 
-<style> html{scrollbar-width:thin}html,body{width:100%!important;height:100%!important;color:#1c2733;margin: 0px auto;padding:0;background:#171717;}</style>
+<style>html{scrollbar-width:thin}html,body{width:100%!important;height:100%!important;color:#1c2733;margin: 0px auto;padding:0;background:#171717;}</style>
 	
 <body>
  <script>
 function getParam ( sname )
 {
   var params = location.search.substr(location.search.indexOf("?")+1);
-  var sval =  params.replace("sv=", "");
-  
+  var sval =  params.replace("sv=", "");  
   return sval;
 }
 var sv = getParam("sv");
@@ -114,7 +113,7 @@ player.core.mediaControl.on('capture:base64', (b64) => {
 };
       </script>
 
-<style>:root{--plyr-video-control-background-hover:rgba(156,136,255,.9);--plyr-color-main:#9c88ff}body{box-sizing:border-box;background:#000;font-family:sans-serif;margin:0}*{text-decoration:none}.albaplayer_videos_channel{position:absolute;z-index:999;left:8px;top:6px;right:8px;height:0}.albaplayer_videos_channel .button{background:#c60303;cursor:pointer;font-size:12px;float:left;display:block;border-radius:2px;height:20px;text-align:center;line-height:18px;text-shadow:0 1px 1px #000;color:#fff;padding:0 10px;font-family:sans-serif;position:relative;z-index:99}.albaplayer_videos_channel .refresh{float:left}</style>
-<div class="albaplayer_videos_channel"><a class="button refresh" href="javascript:window.location.reload()">Refresh</a></div>
+<style>:root{--plyr-video-control-background-hover:rgba(156,136,255,.9);--plyr-color-main:#9c88ff}body{box-sizing:border-box;background:#000;font-family:sans-serif;margin:0}*{text-decoration:none}.albaplayer_videos_channel{position:absolute;z-index:999;left:8px;top:6px;right:8px;height:0}.albaplayer_videos_channel .button{background:;cursor:pointer;font-size:25px;float:left;display:block;border-radius:2px;height:20px;text-align:center;line-height:20px;text-shadow:0 1px 1px #000;color:#fff;padding:0 10px;font-family:sans-serif;position:relative;z-index:99}.albaplayer_videos_channel .refresh{float:left}</style>
+<div class="albaplayer_videos_channel"><a class="button refresh" href="javascript:window.location.reload()" title="Refresh Player">&#8634;</a></div>
 </body>
 </html>
