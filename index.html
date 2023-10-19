@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+    <title>Watch Mobile TV Live</title>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="description" content="Watch Mobile TV Live Online" />
+    <meta name="keywords" content="Watch,TV HD,Live,TV,Online,Mobile TV" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:image:secure_url" content="" />
+    <meta property="og:type" content="video" />
+    <meta property="og:title" content="Live TV Online" />
+    <meta property="og:description" content="Watch Live TV Online" />
+    <meta property="og:site_name" content="tvbd" />
+    <meta property="og:video:type" content="text/html" />
+    <meta property="og:video" content="" />
+    <meta property="og:video:secure_url" content="" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@elahmad_com" />
+    <meta name="twitter:url" content="http://www.elahmad.com/tv/radiant_player.php?id=" />
+    <meta name="twitter:title" content="Live TV Online" />
+    <meta name="twitter:description" content="Watch Live TV Online" />
+
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: -moz-none;
+        -o-user-select: none;
+        user-select: none
+      }
+
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        overflow: hidden
+      }
+
+      #div_player {
+        background: #000;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        padding: 0
+      }
+
+      #player,
+      object,
+      .videoCentered {
+        position: relative;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2
+      }
+
+      .jw-rightclick .jw-featured {
+        display: none
+      }
+
+      .top {
+        position: absolute;
+        top: 0;
+        background: #1b1b1b;
+        width: 100%;
+        height: 48px;
+        z-index: 99;
+        overflow: hidden
+      }
+
+      .top a {
+        display: block;
+        text-align: center;
+        text-decoration: none
+      }
+
+      #addo {
+        text-decoration: none;
+        font-size: 18px;
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 44px;
+        height: 40px;
+        border: 4px solid #444;
+        background-color: #780116;
+        white-space: nowrap;
+        color: #ddd;
+        cursor: pointer;
+      }
+
+      #addo:hover {
+        background-color: #008CBA;
+        color: #000;
+      }
+
+      .plyr {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0
+      }
+
+      .rmp-live-dvr .rmp-time-elapsed-text {
+        background-color: rgba(255, 000, 000, 1) !important
+      }
+
+      .rmp-dvr-vod .rmp-time-elapsed-text {
+        background-color: rgba(127, 127, 127, 1) !important
+      }
+
+      .rmp-live .rmp-time-elapsed-text::before {
+        color: rgba(255, 000, 000, 1) !important
+      }
+    </style>
+  </head>
+  <body bgcolor="#000000">
+    <div id='player' style="width:100%;height:100%"></div>
+    <script type="text/javascript">
+      (function() {
+          rr = Math.floor(1 + Math.random() * 1000000);
+          ad = 'ads' + rr;
+          document.writeln(' < div id = "ads' + ad + '" > < /div>');var userLang=navigator.language||navigator.userLanguage;lang=userLang.substr(0,2).toLowerCase();if(lang=="ar"){lang_g=" < div dir = 'rtl' > & #1578;&# 1605; & #1617; &# 1575; & #1603;&# 1578; & #1588;&# 1575; & #1601; &# 1605; & #1575;&# 1606; & #1593; &# 1575; & #1593;&# 1604; & #1575;&# 1606; & #1575;&# 1578;. & #1604;&# 1605; & #1588;&# 1575; & #1607;&# 1583; & #1577; &# 1607; & #1584;&# 1575; & #1575;&# 1604; & #1605;&# 1581; & #1578;&# 1608; & #1609;&# 1548; & #1610;&# 1585; & #1580;&# 1609; & #1578;&# 1593; & #1591;&# 1610; & #1604; &# 1605; & #1575;&# 1606; & #1593; &# 1575; & #1604;&# 1575; & #1593;&# 1604; & #1575;&# 1606; & #1575;&# 1578;. < /div>"}else{if(lang=="fr"){lang_g=" < div > Bloqueur de publicit & eacute; d & eacute; tect & eacute;.Pour acc & eacute; der & agrave; ce contenu, merci de le d & eacute; sactiver. < /div>"}else{if(lang=="de"){lang_g="Werbeblocker erkannt. Deaktivieren Sie Ihren Werbeblocker, um diesen Inhalt anzuzeigen. < /div>"}else{lang_g=" < div > Ad - blocker detected.To view this content please disable your ad - blocker. < /div>"}}}function ads_e(call){fetch('/ / pahtag.tech / c / elahmad.com.js ',{method: '
+              HEAD ',mode: '
+              no - cors ',}).then((response) => {call(response.redirected)}).catch(() => {call(true)})}ads_e((ads_ok) => {if(ads_ok === true ){window.setTimeout((function(){var user_agent = navigator.userAgent || navigator.vendor || window.opera;if(/windows phone/i.test(user_agent)||/android/i.test(user_agent)||/Windows/i.test(user_agent)||/iPad|iPhone|iPod/.test(user_agent) && !window.MSStream){/*document.getElementById("player").style.display = "none";*/document.getElementById("player").style.position = "absolute";document.getElementById('
+              ads '+ad).innerHTML = ' < div id = "ad-'+rr+'"
+              style = "z-index:99999;position:absolute;padding:12px 0;width:100%;height:100%;background-color:rgba(50%,50%,50%,0.5)" > < div style = "max-width:600px;opacity:.9;position:relative;top:20%;color:#fff;font-size:16px;text-align:center;background:black;padding:12px;border:1px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.4);margin:auto" > '+lang_g+"</div> < /div>";}}),5000)}});})();
+    </script>
+    <script>
+      var embed_result = '/tv/result/embed_result_72.php';
+    </script>
+    <script src="/tv/js/elahmad_player.min.js?v=22.554" charset="UTF-8"></script>
+    <script>
+      unsandbox();
+    </script>
+    <script>
+      loadplayer(radiant)
+    </script>
+   
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <style type=text/css>
+      select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        outline: 0;
+        box-shadow: none;
+        border: 0 !important;
+        background: #5c6664;
+        background-image: none;
+        flex: 1;
+        padding: 0 .5em;
+        color: #fff;
+        cursor: pointer;
+        font-size: 1em;
+        font-family: 'Open Sans', sans-serif
+      }
+
+      select::-ms-expand {
+        display: none
+      }
+
+      #selyer {
+        position: fixed;
+        display: flex;
+        height: 2.5em;
+        line-height: 2.5;
+        background: #5c6664;
+        overflow: hidden;
+        border-radius: .25em;
+        z-index: 99999;
+        width: 170px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto
+      }
+
+      #selyer::after {
+        content: '\25BC';
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 1em;
+        background: #2b2e2e;
+        cursor: pointer;
+        pointer-events: none;
+        transition: .25s all ease
+      }
+
+      #selyer:hover::after {
+        color: #23b499
+      }
+
+      #selyer option {
+        cursor: pointer;
+        font-size: 1.5rem
+      }
+
+      .selyer-fade-out {
+        display: block;
+        visibility: hidden;
+        opacity: 0;
+        -webkit-transition-property: opacity, visibility;
+        -moz-transition-property: opacity, visibility;
+        transition-property: opacity, visibility;
+        -webkit-transition-duration: .4s;
+        -moz-transition-duration: .4s;
+        transition-duration: .4s;
+        -webkit-transition-timing-function: ease-in;
+        -moz-transition-timing-function: ease-in;
+        transition-timing-function: ease-in
+      }
+    </style>
+    <div id="selyer">
+      <select id="select_player">
+        <option disabled selected="selected">Change Player</option>
+        <option value="/player/rad.html?sv=">Radiant Player</option>
+        <option value="/player/cp.html?sv=">Clapper Player</option>
+        <option value="/player/cphd.html?sv=">ClapprHD Player</option>
+        <option value="/player/clapper.html?sv=">HTML5 Player</option>
+        <option value="/player/jw.html?sv=">Jw Player</option>
+        <option value="/player/clapper.html?sv=">Jw Player 8</option>
+        <option value="/player/vjs.html?sv=">VideoJs Player</option>
+        <option value="/player/plyr.html?sv=">Plyr Player</option>
+        <option value="/player/oven.html?sv=">Oven Player</option>
+        <option value="/player/kaltura.html?sv=">Kaltura Player</option>
+      </select>
+    </div>
+    <script>
+      var time_moved = "";
+      jQuery(document).ready(function() {
+        $("#select_player").on("change", function() {
+          var a = $(this).val();
+          a && (window.location = a);
+          return !1
+        });
+        $(document).mousemove(function(a) {
+          $("#selyer").removeClass("selyer-fade-out");
+          time_moved = (new Date).getTime();
+          setTimeout(function() {
+            3E3 < (new Date).getTime() - time_moved && $("#selyer").addClass("selyer-fade-out")
+          }, 3E3)
+        });
+        setTimeout(function() {
+          $("#selyer").addClass("selyer-fade-out")
+        }, 3E3)
+      });
+    </script>
+  </body>
+</html>
