@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset=utf-8 />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=yes">
+
+
+  	
+	<script type="text/javascript" src="js/jwplayer.js"></script>
+	
+	
+<script>
+
+const urlParams = new URL(window.location.href).searchParams;
+const link = urlParams.get('link');
+
+const titles = urlParams.get('title');
+document.title = titles ; 
+</script>
+
+
+<script type="text/javascript">
+		jwplayer.key = 'ypdL3Acgwp4Uh2/LDE9dYh3W/EPwDMuA2yid4ytssfI=';
+		</script>
+		
+
+
+ <style>
+video{ 
+ z-index: -1;
+
+poster : "//ayas.ir/logoAyaskTV.png";
+
+
+}
+ #myElement {
+   position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left:0;
+  min-width: 100%;
+  min-height: 100%;
+
+}
+
+ a#link{
+               
+z-index: 10;
+               
+               text-decoration: none;
+                background:#F6C53F;
+                font-size : 15px;
+                color:#ff0000;
+                border-radius: 10px;
+                padding:10px 15px;
+            }
+            a#link:visited{
+                	
+                text-decoration: none;
+                background:#F6C53F;
+                color:#ff00ff;
+                padding:10px 15px;
+                border-radius: 10px;
+            }
+            
+            a#link:hover{
+                	
+                 text-shadow: 1px 1px 0 #ffd217, 2px 2px 0 #5ac7ff, 3px 3px 0 #ffd217, 4px 4px 0 #5ac7ff;
+                text-decoration: none;
+                background:#00ff00;
+                color:#ff0000;
+                font-size : 16px;
+                padding:10px 15px;
+                border-radius: 50px;
+            }
+
+</style>
+ 
+</head>
+<body>
+   					
+<div id="myElement"></div>
+<script type="text/javascript">
+   var playerInstance = jwplayer("myElement");
+ playerInstance.setup({
+ playlist: [{
+        image: "//ayas.ir/logoAyaskTV.png",
+        sources: [{
+            file: link 
+        }],
+		
+    }],logo: {
+file: '//ayas.ir/icon/back.png',
+position: 'top-left',
+link: ''
+},preload: "auto",
+								 width: '100%',
+      height: '100%',
+      hideMediaControl: false,
+      autoPlay: true,
+								repeat: true,
+								mute: false,
+								autostart:true,
+								androidhls: true,
+								
+cast:{}
+});
+ 
+playerInstance.addButton(
+                  "https://ayas.ir/ayaslogo.png",
+                  "openlink when clicked",
+                   function() {
+                   onclick="window.open('', '_top')";
+                  },
+                 "openlinkwhenclicked"
+                ); 
+playerInstance.play();
+
+
+
+
+/*
+
+
+jwplayer().onDisplayClick(function() { jwplayer().setFullscreen(true); }); 
+
+
+
+playerInstance.on('error', function(evt){
+	 
+ // sleep time expects milliseconds
+function sleep1 (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
+// Usage!
+sleep1(3000).then(() => {
+	
+	
+location.reload();
+  
+    // Do something after the sleep!
+});
+	 
+			 	
+ 		//element.innerHTML = "<p>Your message</p>"; 
+			
+			
+			});
+
+*/
+</script>
+	
+
+  
+
+
+</div>
+ 
+</body>
+
+
+
+</html>
+
