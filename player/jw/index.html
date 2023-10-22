@@ -10,14 +10,32 @@
 		</head>
 		<body>
 
+			
  <script src="KB5zFt7A.js"></script>
 <script src="provider.hlsjs.js"></script>
 <script src="provider.cast.js"></script>
 <script type="text/javascript"> jwplayer.key = "eNFaXCjyURVoCCGiHp7HTQ3hDhE/AfL0g8VE1fRbL84=";</script>
 <script type="text/javascript" src="html2canvas.min.js"></script>
-        
+<script>
+function getParam ( sname )
+{
+  var params = location.search.substr(location.search.indexOf("?")+1);
+  var sval =  params.replace("sv=", "");
+  
+  return sval;
+}
+var sv = getParam("sv");
+</script>
+<script>
+  var responseText = ''+sv+'';
+  urlArry = responseText.split(',');
+  start = true;
+  num_of_urlArry = urlArry.length;
+  index_of_urlArry = 0;
+</script>
+<div id="video"></div>		
 		<script>
-			var m3u8 = 'sv';
+			var m3u8 = ''+sv+'';
 			let domainM3U8 = (new URL(m3u8));
 			var player = jwplayer('video');
 
@@ -147,5 +165,9 @@
 				}
 			}
 		</script>
+
+ <style>:root{--plyr-video-control-background-hover:rgba(156,136,255,.9);--plyr-color-main:#9c88ff}body{box-sizing:border-box;background:#000;font-family:sans-serif;margin:0}*{text-decoration:none}.albaplayer_videos_channel{position:absolute;z-index:999;left:8px;top:6px;right:8px;height:0}.albaplayer_videos_channel .button{background:;cursor:pointer;font-size:25px;float:right;display:block;border-radius:2px;height:20px;text-align:center;line-height:20px;text-shadow:0 1px 1px #000;color:#fff;padding:25px 0px;font-family:sans-serif;position:relative;z-index:99}.albaplayer_videos_channel .refresh{float:right}</style>
+<div class="albaplayer_videos_channel"><a class="button refresh" href="javascript:window.location.reload()" title="Refresh Player">&#8634;</a></div>   
+			
 		</body>
 		</html>			
