@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+		<html>
+		<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<title>JW Player</title>		
+<style type='text/css'>html{overflow-x:hidden;scrollbar-width:thin;} body{-webkit-font-smoothing:antialiased;position:relative;top:0!important;margin:0;padding:0!important;width:100%;scrollbar-width: thin;} a{text-decoration:none}</style>
+		</head>
+
+		<body>
+		<div class="video-wrapper">
+			<div id="video"></div>
+			<div id="video-note-english-commentary">
+				<span>
+					English commentary will be available when the match kicks off.
+				</span>
+			</div>
+		</div>
+
+
+		<script src="KB5zFt7A.js"></script>
+		<script src="provider.hlsjs.js"></script>
+		<script src="provider.cast.js"></script>
+		<script type="text/javascript"> jwplayer.key = "eNFaXCjyURVoCCGiHp7HTQ3hDhE/AfL0g8VE1fRbL84=";</script>
+		<script type="text/javascript" src="html2canvas.min.js"></script>
+		<script>
+const urlParams = new URL(window.location.href).searchParams;
+const sv = urlParams.get('sv');
+</script>
+		<script>
+			var m3u8 = 'sv';
+			let domainM3U8 = (new URL(m3u8));
+			var player = jwplayer('video');
+
+			// setInterval(() => {
+			//     eval('debugger')
+			// }, 2000)
+			const expiredInMillis = -11450015
+			console.log('expiredInMillis: '+expiredInMillis);
+
+			if (expiredInMillis > 0) {
+				setTimeout(function () {
+					document.getElementById('video-note-english-commentary').style.display = 'none';
+				}, expiredInMillis);
+			} else {
+				document.getElementById('video-note-english-commentary').style.display = 'none';
+			}
+			addEventListener("message", function (event) {
+				try {
+					const dataParse = JSON.parse(event.data);
+					if (dataParse.event == 'banner-on-player') {
+						$('.jw-wrapper').append('<div class="banner-on-player">' + dataParse.data.html + '</div>');
+					}
+					if (dataParse.event == 'logo-on-player') {
+						$('.jw-wrapper').append('<div class="logo-on-player">' + dataParse.data.html + '</div>');
+					}
+					if (dataParse.event == 'click-player') {
+						if (player != undefined) {
+							if (jwplayer().getState() != 'playing') {
+								player.play();
+							} else {
+								player.pause();
+							}
+						}
+					}
+					if (dataParse.event == 'player-unmute') {
+						if (player != undefined && player.getMute() === true) {
+							player.setMute(false);
+
+							setTimeout(() => {
+								if (player.getState() != 'playing') {
+									player.play();
+								}
+							}, 500)
+						}
+					}
+					if (dataParse.event == 'capture-player') {
+						html2canvas(document.querySelector(".video-wrapper")).then(canvas => {
+							let dataURL = canvas.toDataURL();
+							sendEventToParent('response-capture-player', { image: dataURL});
+						});
+					}
+				} catch (e) {
+					console.log(e);
+				}
+			}, false);
+		
+			window.addEventListener('load', function () {
+				/*if (navigator.userAgent.match('Intel Mac OS') == null) {
+		
+				}*/
+				//jwplayer_hls_provider.attach();
+				// if(Hls.isSupported()) {
+				player.setup({
+					file: m3u8,
+					type: 'hls',
+					autostart: true,
+					mute: true,
+					width: "100%",
+					height: "100vh",
+				});
+
+				player.addButton(
+					"logo.png",
+					"MayCDN",
+					function () {
+						window.open("", "_blank");
+					},
+					"btn-maycdn"
+				);
+
+				player.on('ready', function() {
+					if (player.getMute() === true) {
+						sendEventToParent('player-is-muted', true);
+					}
+				})
+
+				player.on('mute', function() {
+					if (player.getMute() === true) {
+						sendEventToParent('player-manual-mute', true);
+					} else {
+						sendEventToParent('player-manual-unmute', true);
+					}
+				})
+
+				player.on('error', function(e) {
+					sendEventToParent('error-player', e);
+				})
+
+				player.on('levelsChanged', function () {
+					document.getElementsByClassName("jw-icon-settings")[0].style.backgroundImage = 'url(all-anim.gif)';
+				});
+				player.on('visualQuality', function (level,label,reason) {
+					if(level.level){
+						level = level.level;
+						var label = level.label.toLowerCase();
+						document.getElementsByClassName("jw-icon-settings")[0].style.backgroundImage = 'url(quality/' + label+".png" + ')';
+					}
+				});
+
+				setTimeout(function () {player.play();}, 1000);
+				setTimeout(function () {player.play();}, 2000);
+				setTimeout(function () {player.play();}, 3000);
+				setTimeout(function () {player.play();}, 4000);
+				setTimeout(function () {player.play();}, 5000);
+				// }
+			})
+
+			function sendEventToParent(event, data) {
+				if (parent) {
+					parent.postMessage(
+						JSON.stringify({
+							event,
+							data,
+						}),
+						'*'
+					)
+				}
+			}
+		</script>
+		</body>
+		</html>

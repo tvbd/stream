@@ -1,0 +1,51 @@
+body {
+					margin: 0!important;
+				}
+				#video {
+					width: 100%;
+					height: 100%;
+				}
+				.jw-icon-fullscreen, .jw-icon-pip {display: none!important;}
+				.logo-on-player {
+					position: absolute;
+					width: 100px;
+					right: 20px;
+					top: 20px;
+				}
+                .video-wrapper {
+					width: 100%;
+					height: 100%;
+                    position: relative;
+                }
+                #video-note-english-commentary {
+					position: absolute;
+					bottom: 10%;
+					left: 50%;
+					transform: translate(-50%, 0);
+					font-size: 4.5vmin;
+					text-align: center;
+					color: #000;
+					width: 100%;
+                }
+				#video-note-english-commentary > span {
+					background: #fff;
+					padding: 5px;
+				}
+				.jw-icon-settings{
+					background-image: url('https://storage.n2olabs.pro/quality/auto.png');
+					background-repeat: no-repeat;
+					background-size: contain;
+					max-height: 24px;
+				}
+				.jw-icon-settings svg{
+					display: none;
+				}
+
+				[button="btn-maycdn"] {
+					width: 100px!important;
+					margin-right: 50px!important;
+				}
+
+				[button="btn-maycdn"] > .jw-icon {
+					width: 100%!important;
+				}
