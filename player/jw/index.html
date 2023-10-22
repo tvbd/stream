@@ -10,7 +10,7 @@
 		</head>
 		<body>
 
-			
+<div class="video-wrapper"><div id="video"></div><div id="video-note-english-commentary"><span>Loading...</span></div></div>		
  <script src="KB5zFt7A.js"></script>
 <script src="provider.hlsjs.js"></script>
 <script src="provider.cast.js"></script>
@@ -33,7 +33,7 @@ var sv = getParam("sv");
   num_of_urlArry = urlArry.length;
   index_of_urlArry = 0;
 </script>
-<div id="video"></div>		
+
 		<script>
 			var m3u8 = ''+sv+'';
 			let domainM3U8 = (new URL(m3u8));
@@ -135,13 +135,13 @@ var sv = getParam("sv");
 				})
 
 				player.on('levelsChanged', function () {
-					document.getElementsByClassName("jw-icon-settings")[0].style.backgroundImage = 'url(https://storage.n2olabs.pro/quality/all-anim.gif)';
+					document.getElementsByClassName("jw-icon-settings")[0].style.backgroundImage = 'url(all-anim.gif)';
 				});
 				player.on('visualQuality', function (level,label,reason) {
 					if(level.level){
 						level = level.level;
 						var label = level.label.toLowerCase();
-						document.getElementsByClassName("jw-icon-settings")[0].style.backgroundImage = 'url(https://storage.n2olabs.pro/quality/' + label+".png" + ')';
+						document.getElementsByClassName("jw-icon-settings")[0].style.backgroundImage = 'url(quality/' + label+".png" + ')';
 					}
 				});
 
