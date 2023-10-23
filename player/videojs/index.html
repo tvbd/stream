@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+		<html>
+		<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<title>Videojs Player</title>		
+<style type='text/css'>html{overflow-x:hidden;scrollbar-width:thin;} body{-webkit-font-smoothing:antialiased;position:relative;top:0!important;margin:0;padding:0!important;width:100%;scrollbar-width: thin;} a{text-decoration:none}
+#v_player{height: 100vh;width:100vw; padding:0px;position:fixed!important;bottom:0;right:0;top:0;left:0;z-index:999!important;}
+</style>
+		</head>
+
+		<body>
+
+
+
+ <link href="videojs_style4.min.css" rel="stylesheet" type="text/css" />    
+   
+<!-- Start Page Content Area -->
+<div class="page-content-area vfx-item-ptb pt-0">
+
+  <div class="container-fluid bg-dark video-player-base"> 
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="video-posts-video">         
+          
+		       <script>
+function getParam ( sname )
+{
+  var params = location.search.substr(location.search.indexOf("?")+1);
+  var sval =  params.replace("sv=", "");
+  
+  return sval;
+}
+var sv = getParam("sv");
+</script>
+  
+<script>
+  var responseText = ''+sv+'';
+  urlArry = responseText.split(',');
+  start = true;
+  num_of_urlArry = urlArry.length;
+  index_of_urlArry = 0;
+</script>
+
+		  
+		  
+		  
+		  
+              <video id="v_player" class="video-js vjs-big-play-centered skin-blue vjs-16-9" controls preload="auto" playsinline crossorigin="anonymous" width="640" height="450" poster="https://sonyplex.com/upload/03-1.jpg" data-setup="{}" autoplay="true">
+							  	
+		  	<!-- video source -->
+			
+	<script> document.write('<source src="'+sv+'" type="application/x-mpegURL" label="Auto" res="1"/></source>'); </script>
+			
+			
+          
+			<!-- worning text if needed -->
+			<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+</video>
+                 
+        </div>
+      </div>
+    </div>  
+  </div>
+
+
+
+
+<script src="videojs.min.js"></script>
+
+<script src="videojs.pip.js"></script> 
+
+ <!--<script src="https://cdn.jsdelivr.net/npm/@silvermine/videojs-chromecast@1.2.1/dist/silvermine-videojs-chromecast.min.js"></script> -->
+
+ <script src="videojs-chromecast.min.js"></script>
+  
+ <script>
+        var player = videojs('v_player',{techOrder:['chromecast','html5']});
+    
+        player.viavi({
+            shareMenu: false,
+            
+            video_id: 'livetv28',
+            resume: true,
+            contextMenu: false,
+                        buttonRewind: true,
+            buttonForward: true,            
+                      
+            mousedisplay:true,
+            textTrackSettings: false             
+        });
+
+        player.pip();
+
+        
+        player.chromecast({ metatitle: '', metasubtitle: 'Release : ' });         
+      
+      
+
+         player.on('vroll', function(event, data) {
+            var ad_id = data.id;
+            var action = data.action;
+
+            //alert(ad_id);
+            //alert(action);
+
+           });
+
+          
+      
+     player.ready(function(){
+     var player_ = this;
+     var show_on_start =true;
+     var close_delay=5;
+     var parent = this.el().parentNode;
+     console.log(parent.id);
+     var closeBtn = parent.querySelector('.over-close');
+     var overlay = parent.querySelector('.div-over');
+     var timer;
+     function delay() {
+      clearTimeout(timer);
+      if(parseInt(close_delay)>0) {
+        closeBtn.innerHTML=close_delay;
+        var timer =window.setTimeout(delay, 1000);
+        close_delay--;
+      } else {
+        closeBtn.innerHTML='';
+        closeBtn.className='over-close';
+      }
+     }
+     function showOverlay() {
+      console.log('delay:'+close_delay);
+      if(parseInt(close_delay)>0) {
+        delay();
+      } else {
+        closeBtn.className = 'over-close';
+      }
+      overlay.style.display='block';
+     }
+
+     closeBtn.addEventListener('click',function(e) {
+      overlay.style.display='none';
+      player_.play();
+     }, false);
+
+     this.on("pause", function(){
+      if (!this.seeking() && this.paused()) {
+        // Show overlay
+        showOverlay();
+      }
+     });
+
+     this.on('play', function(e) {
+      // Hide overlay
+      overlay.style.display='none';
+     });
+     if(show_on_start) {
+      this.pause(); showOverlay();
+     } else {
+      overlay.style.display='none';
+     }
+  });
+         
+    </script>
+ <style>:root{--plyr-video-control-background-hover:rgba(156,136,255,.9);--plyr-color-main:#9c88ff}body{box-sizing:border-box;background:#000;font-family:sans-serif;margin:0}*{text-decoration:none}.albaplayer_videos_channel{position:absolute;z-index:999;left:8px;top:6px;right:8px;height:0}.albaplayer_videos_channel .button{background:;cursor:pointer;font-size:25px;float:right;display:block;border-radius:2px;height:20px;text-align:center;line-height:20px;text-shadow:0 1px 1px #000;color:#fff;padding:25px 0px;font-family:sans-serif;position:relative;z-index:99}.albaplayer_videos_channel .refresh{float:right}</style>
+<div class="albaplayer_videos_channel"><a class="button refresh" href="javascript:window.location.reload()" title="Refresh Player">&#8634;</a></div>   
+ 
+
+		</body>
+		</html>
