@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="X-Frame-Bypass: Web Component extending IFrame to bypass X-Frame-Options: deny/sameorigin">
+	<meta name="description" content="X-Frame-Bypass">
 	<title>X-Frame-Bypass Web Component Demo</title>
 	<style>
 		html, body {
@@ -33,8 +33,7 @@
 <body>
 
 
-
-		       <script>
+<script>
 function getParam ( sname )
 {
   var params = location.search.substr(location.search.indexOf("?")+1);
@@ -53,8 +52,7 @@ var sv = getParam("sv");
   index_of_urlArry = 0;
 </script>
 
-		
-	<script>document.write('<iframe is="x-frame-bypass" src="+sv+" frameborder="0" width="100%" height="100%" ></iframe>');</script>
+	<script>document.write('<iframe is="x-frame-bypass" src="'+sv+'" frameborder="0" width="100%" height="100%" ></iframe>');</script>
 
 	
 	</body>
