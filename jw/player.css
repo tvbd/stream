@@ -1,0 +1,247 @@
+
+
+.jwplayer video {
+    pointer-events: none !important;
+}
+
+.jwplayer .jw-rightclick .jw-rightclick-list {
+    display: none !important;
+}
+
+.jw-knob {
+    width: 1.3em !important;
+    height: 1.3em !important;
+}
+
+.jw-captions-text,
+.jw-text-track-cue {
+    background-color: rgba(0, 0, 0, 0);
+    text-shadow: #000 -2px 0 1px, #000 2px 0 1px, #000 0 -2px 1px,
+        #000 0 2px 1px, #000 -1px 1px 1px, #000 1px 1px 1px, #000 1px -1px 1px,
+        #000 1px 1px 1px;
+}
+
+.jw-settings-menu .jw-icon.jw-button-color[aria-expanded="true"]::after {
+    display: none !important;
+}
+
+.jw-settings-menu,
+.jw-button-container {
+    z-index: 2;
+}
+
+.jw-controlbar .jw-button-container .jw-icon-volume .jw-overlay {
+    padding-bottom: 0 !important;
+}
+
+@media screen and (max-width: 767px) {
+
+    .jw-button-container .jw-icon-airplay,
+    .jw-button-container .jw-settings-sharing {
+        display: none !important;
+    }
+}
+
+.jw-breakpoint-6 .jw-settings-menu,
+.jw-breakpoint-5 .jw-settings-menu {
+    max-height: 222px !important;
+}
+
+.jw-breakpoint-1 .jw-icon-cc,
+.jw-breakpoint-1 .jw-icon[button="download"],
+.jw-breakpoint-2 .jw-icon-cc,
+.jw-flag-floating .jw-icon[button="pip"],
+.jw-flag-floating .jw-icon-cc,
+.jw-flag-floating .jw-icon-fullscreen,
+.jw-flag-floating .jw-icon[button="download"],
+.jw-flag-floating .jw-icon[button="gdrive"],
+.jw-flag-floating .jw-settings-sharing,
+.jw-icon-volume.jw-open::after {
+    display: none;
+}
+
+@media screen and (max-width: 479px) {
+
+    .jw-icon[button="gdrive"],
+    .jw-icon[button="logo"],
+    .jw-icon[button="pip"],
+    .jw-settings-sharing {
+        display: none;
+    }
+}
+
+.jw-flag-dragging .jw-slider-time .jw-knob,
+.jw-icon-volume:active .jw-slider-volume .jw-knob,
+.jw-slider-time:active .jw-knob,
+.jw-slider-time:focus .jw-knob {
+    box-shadow: 0 0 26px rgba(0, 0, 0, 0.15), 0 0 10px rgba(0, 0, 0, 0.3),
+        0 0 0 6px rgba(255, 255, 255, 0.15) !important;
+}
+
+.jw-settings-item-active::before,
+.jw-icon-inline.jw-icon-rewind {
+    display: none !important;
+}
+
+.jw-settings-topbar {
+    background-color: transparent !important;
+}
+
+.jw-settings-content-item {
+    font-size: 14px !important;
+    padding: 9px 15px !important;
+}
+
+.jw-settings-submenu {
+    padding: 0 !important;
+    overflow-x: hidden;
+}
+
+.jw-settings-submenu .jw-submenu-topbar {
+    box-shadow: none !important;
+    background-color: transparent !important;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 0 !important;
+}
+
+.jw-settings-submenu .jw-submenu-topbar .jw-settings-content-item {
+    text-decoration: none !important;
+    font-weight: bold;
+}
+
+.jw-settings-menu .jw-icon.jw-button-color[aria-checked="true"]::after,
+.jw-settings-open .jw-icon-settings::after {
+    display: none;
+}
+
+.jw-flag-small-player .jw-settings-content-item {
+    line-height: 1 !important;
+}
+
+.jw-breakpoint-1:not(.jw-flag-audio-player) .jw-slider-time {
+    padding: 0 12px !important;
+}
+
+.jw-breakpoint--1:not(.jw-flag-audio-player) .jw-slider-time {
+    height: auto !important;
+    padding: 0 !important;
+}
+
+.jw-breakpoint--1:not(.jw-flag-audio-player) .jw-slider-time .jw-slider-container {
+    margin: 0 !important;
+}
+
+.jwplayer.jw-breakpoint--1:not(.jw-flag-ads):not(.jw-flag-audio-player) .jw-button-container {
+    padding: 0 !important;
+}
+
+.jw-flag-small-player:not(.jw-flag-audio-player):not(.jw-flag-ads) .jw-controlbar .jw-button-container>.jw-icon-playback {
+    display: flex !important;
+}
+
+.jwplayer.jw-breakpoint--1:not(.jw-flag-audio-player):not(.jw-flag-ads) .jw-controlbar .jw-button-container>.jw-icon-playback {
+    bottom: 6px !important;
+}
+
+.jw-flag-small-player .jw-icon[button="download"],
+.jw-flag-small-player .jw-icon[button="rewind"],
+.jw-flag-small-player .jw-icon[button="forward"],
+.jw-breakpoint-1 .jw-icon[button="download"],
+.jw-breakpoint-1 .jw-icon[button="rewind"],
+.jw-breakpoint-1 .jw-icon[button="forward"],
+.jw-breakpoint--1 .jw-icon[button="download"],
+.jw-breakpoint--1 .jw-icon[button="rewind"],
+.jw-breakpoint--1 .jw-icon[button="forward"] {
+    display: none !important;
+}
+
+.jw-button-container {
+    padding: 0 !important;
+}
+
+.jwplayer.jw-breakpoint-6 .jw-slider-time,
+.jwplayer.jw-breakpoint-7 .jw-slider-time {
+    padding: 0 24px !important;
+}
+
+.jwplayer.jw-breakpoint-6 .jw-button-container,
+.jwplayer.jw-breakpoint-7 .jw-button-container {
+    padding: 0 12px !important;
+}
+
+.jwplayer.jw-flag-live [button="rewind"],
+.jwplayer.jw-flag-live [button="forward"] {
+    display: none !important;
+}
+
+.jw-breakpoint-2 .jw-settings-open.jw-controls,
+.jw-flag-small-player .jw-settings-open.jw-controls,
+.jw-flag-touch .jw-settings-open.jw-controls {
+    z-index: 5 !important;
+}
+
+.jw-flag-ads+#server-list,
+.jw-flag-small-player.jw-state-paused+#server-list {
+    display: none !important;
+}
+
+.jw-flag-touch.jw-state-paused:not(.jw-flag-ads) .jw-display-icon-next,
+.jw-flag-touch.jw-state-playing:not(.jw-flag-ads) .jw-display-icon-next,
+.jw-flag-touch.jw-state-paused:not(.jw-flag-ads) .jw-display-icon-rewind,
+.jw-flag-touch.jw-state-playing:not(.jw-flag-ads) .jw-display-icon-rewind {
+    display: inline-block;
+}
+
+.jw-breakpoint-2 .jw-display .jw-svg-icon.jw-svg-icon-forward,
+.jw-breakpoint-2 .jw-display .jw-svg-icon.jw-svg-icon-rewind {
+    width: 44px;
+}
+
+.jw-breakpoint-1 .jw-display .jw-svg-icon.jw-svg-icon-forward,
+.jw-breakpoint-1 .jw-display .jw-svg-icon.jw-svg-icon-rewind {
+    width: 33px;
+}
+
+.jw-breakpoint--1 .jw-display .jw-svg-icon.jw-svg-icon-forward,
+.jw-breakpoint--1 .jw-display .jw-svg-icon.jw-svg-icon-rewind {
+    display: none;
+}
+
+.jwplayer.jw-flag-user-inactive:not(.jw-state-complete) #server-list {
+    visibility: hidden;
+}
+
+.jw-display-icon-container .jw-icon .jw-svg-icon-rewind {
+    padding: 0 !important;
+}
+
+.jw-breakpoint-7 .jw-logo-bottom-left,
+.jw-breakpoint-7 .jw-logo-bottom-right {
+    bottom: 100px;
+}
+
+.jw-tizen-app .jw-tizen-controlbar .jw-slider-time {
+    margin: 0 20px !important;
+}
+
+.jwplayer.jw-stretch-uniform .jw-media video {
+    object-fit: contain !important;
+}
+
+.jwplayer.jw-stretch-exactfit .jw-media video {
+    object-fit: fill !important;
+}
+
+.jwplayer.jw-stretch-fill .jw-media video {
+    object-fit: cover !important;
+}
+
+.jwplayer.jw-stretch-none .jw-media video {
+    object-fit: none !important;
+}
+
+.jwplayer.jw-flag-live .jw-display-icon-next {
+    visibility: hidden !important;
+}
