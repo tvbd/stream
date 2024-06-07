@@ -37,7 +37,7 @@ function _0x54cf() {
 })(_0x54cf, 0x4968f);
 $(document).ready(function () {
   $("#clickjw").click(function () {
-    window.location.href = "player/vjs.html?sv=" + $("#link").val();
+    window.location.href = "//raw.githack.com/tvbd/m3uplayer/main/Hls/index.html?sv=" + $("#link").val();
   });
   $('#clickply').click(function () {
     window.location.href = "player/x.html?sv=" + $("#link").val();
