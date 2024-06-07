@@ -7,7 +7,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.7/shaka-player.ui.min.js" integrity="sha512-DiwMDsfcYRNZd/li7goVsSG0ewZAdauVdMg0v3FuLtea57aVy2hUH0hu0J/wDRRt5RyQZq76RzkrBNseMmzXOg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.7/controls.min.css" integrity="sha512-FvnJOvchkjzz8TYMseY6gGQTdL3Ye3btvWMSoO8brPB9XLDPskq6LkyxwpgjSs1ZALn6lwq5V/5PNWmOd2HKdg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mux.js/5.10.0/mux.min.js"></script>
-  <title>HTML</title>
+  <title>Shaka Player</title>
 
 <style>
 *{
@@ -49,8 +49,8 @@ var sv = getParam("sv");
 
   
   <script>
-    let manifestUri = ''+sv+'';
-    let manifestUri2 = ''+sv+''
+    let manifestUri = '"+sv+"';
+    let manifestUri2 = '"+sv+"'
     
     async function init() {
       const video = document.getElementById('video');
