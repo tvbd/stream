@@ -1,0 +1,64 @@
+
+ <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ePlayHD</title>
+    <script src="https://use.fontawesome.com/20603b964f.js"></script>
+    <script src="//content.jwplatform.com/libraries/IDzF9Zmk.js"></script>
+    <script type="text/javascript">jwplayer.key = 'ypdL3Acgwp4Uh2/LDE9dYh3W/EPwDMuA2yid4ytssfI=';</script>
+</head>
+<body>
+    <div id="myElement"></div>
+    <script type="text/javascript">
+        // Function to get URL parameter
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Get the video URL parameter
+        var videoUrl = getParameterByName('c');
+
+        // Setup JW Player
+        jwplayer("myElement").setup({
+            file: videoUrl, // Set the video file URL dynamically
+            type: "hls",
+            hlshtml: true,
+            playbackRateControls: [0.75, 1, 1.25, 1.5],
+            title: 'Watching Live',
+            width: "100%",
+            height: "100%",
+            aspectratio: '16:9',
+            mute: false,
+            repeat: 'true',
+            autostart: true, 
+            primary: 'html5',
+            setFullscreen: true,
+            controls: true,
+            showCode: true,
+            responsive: true,
+            abouttext: "TVBD",
+            aboutlink: "",
+            logo: {
+                file: "https://eplayhd.com/wp-content/uploads/2024/02/Picsart_24-02-17_13-28-09-059.png",
+                link: "",
+                position: "top-left",
+                margin: "5",
+                hide: true
+            },
+            skin: {
+                name: "glow",
+                active: "red",
+                inactive: "",
+                background: ""
+            }
+        });
+    </script>
+</body>
+</html>
