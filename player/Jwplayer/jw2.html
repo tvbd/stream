@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js//jwplayer.js"></script>
+    <style>
+        #container {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #8a0000;
+            color: #fff;
+            overflow: hidden;
+            position: relative; /* Ensure the logo is positioned relative to this container */
+        }
+        #iframe, #jwPlayer {
+            height: 100vh !important;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+        body {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        video {
+            outline: 0;
+        }
+        #text {
+            position: fixed;
+            border: 0;
+            left: 0;
+            width: 100%;
+            color: #fff;
+            bottom: 50px;
+            text-align: center;
+            font-family: tahoma;
+            font-size: 20px;
+            z-index: 9999;
+        }
+        .video-js {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            text-align: center;
+            margin: 0px;
+        }
+        #videojs {
+            width: 100%;
+            height: 100%;
+        }
+        .streaming-dimensions {
+            width: 100% !important;
+            height: 100% !important;
+        }
+        #logo {
+            position: absolute;
+            top: 25px; /* Adjust as needed */
+            right: 50px; /* Adjust as needed */
+            width: 70px; /* Medium size */
+            z-index: 1000; /* Ensure it appears above the iframe */
+            pointer-events: none; /* Make the logo non-clickable */
+        }
+    </style>
+    <script>
+        function getParam(sname) {
+            var params = location.search.substr(location.search.indexOf("?") + 1);
+            var sval = params.replace("url=", "");
+            return sval;
+        }
+        var sv = getParam("sv");
+
+        $(document).ready(function() {
+            $("img").on("contextmenu", function() {
+                return false;
+            });
+
+            // Handle fullscreen changes
+            document.addEventListener('fullscreenchange', toggleLogoFullscreen);
+            document.addEventListener('webkitfullscreenchange', toggleLogoFullscreen);
+            document.addEventListener('mozfullscreenchange', toggleLogoFullscreen);
+            document.addEventListener('MSFullscreenChange', toggleLogoFullscreen);
+        });
+
+        function toggleLogoFullscreen() {
+            const logo = document.getElementById('logo');
+            if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
+                const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+                fullscreenElement.appendChild(logo);
+            } else {
+                document.getElementById('container').appendChild(logo);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <img id="logo" src="https://prabeenbhattarai.github.io/pbsports/logo1.png" alt="Logo">
+        <iframe id="iframe" allowfullscreen="allowfullscreen" allowtransparency="true" frameborder="5" height="100%" marginheight="0" marginwidth="0" sandbox="allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation" width="100%"></iframe>
+        <div id="jwPlayer"></div>
+        <div id="jwplayers"></div>
+    </div>
+    <script>
+        // Get the `src` parameter from the URL.
+        const urlParams = new URLSearchParams(window.location.search);
+        const srcParam = urlParams.get('src');
+        const videoUrl = urlParams.get('url');
+        
+        if (srcParam) {
+          // Show the iframe player
+          document.getElementById('iframe').src = srcParam;
+          document.getElementById('jwPlayer').style.display = 'none';
+        } else if (videoUrl) {
+          jwplayer("jwPlayer").setup({
+            file: videoUrl,
+          });
+          document.getElementById('iframe').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
