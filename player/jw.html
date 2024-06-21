@@ -123,7 +123,16 @@
         }
     </script>
 
-
+<style type='text/css'>
+* : (input, textarea) {-webkit-touch-callout:none;-webkit-user-select:none;}img {-webkit-touch-callout:none;-webkit-user-select:none;}
+</style>
+<script type='text/javascript'>
+window.addEventListener("keydown",function(h){!h.ctrlKey||65!=h.which&&66!=h.which&&67!=h.which&&70!=h.which&&73!=h.which&&80!=h.which&&83!=h.which&&85!=h.which&&86!=h.which||h.preventDefault()}),document.keypress=function(h){return h.ctrlKey&&(65==h.which||66==h.which||70==h.which||67==h.which||73==h.which||80==h.which||83==h.which||85==h.which||h.which),!1};
+function disableSelection(e){void 0!==e.onselectstart?e.onselectstart=function(){return!1}:void 0!==e.style.MozUserSelect?e.style.MozUserSelect="none":e.onmousedown=function(){return!1},e.style.cursor="default"}window.onload=function(){disableSelection(document.body)};
+document.oncontextmenu=function(n){var t=n||window.event;if("A"!=(t.target||t.srcElement).nodeName)return!1},document.ondragstart=function(){return!1};
+document.onkeydown=function(e){if(123==(e=e||window.event).keyCode||18==e.keyCode)return!1};
+</script>
+    
  <style>:root{--plyr-video-control-background-hover:rgba(156,136,255,.9);--plyr-color-main:#9c88ff}body{box-sizing:border-box;background:#000;font-family:sans-serif;margin:0}*{text-decoration:none}.albaplayer_videos_channel{position:absolute;z-index:999;left:8px;top:6px;right:8px;height:0}.albaplayer_videos_channel .button{background:;cursor:pointer;font-size:25px;float:right;display:block;border-radius:2px;height:20px;text-align:center;line-height:20px;text-shadow:0 1px 1px #000;color:#fff;padding:25px 0px;font-family:sans-serif;position:relative;z-index:99}.albaplayer_videos_channel .refresh{float:right}</style>
 <div class="albaplayer_videos_channel"><a class="button refresh" href="javascript:window.location.reload()" title="Refresh Player">&#8634;</a></div>   
 </body>
