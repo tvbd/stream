@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWPLAYER</title>
+    <link rel="stylesheet" href="red.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+        #player {
+            position: absolute;
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+</head>
+<body>
+<div id="player"></div>
+
+<script src="//content.jwplatform.com/libraries/KB5zFt7A.js"></script>
+
+
+ <script>
+function getParam ( sname )
+{
+  var params = location.search.substr(location.search.indexOf("?")+1);
+  var sval =  params.replace("sv=", "");  
+  return sval;
+}
+var sv = getParam("sv");
+</script>
+<script>
+  var responseText = ''+sv+'';
+  urlArry = responseText.split(',');
+  start = true;
+  num_of_urlArry = urlArry.length;
+  index_of_urlArry = 0;
+</script>
+
+
+
+
+  
+<script>
+// Function to intercept network requests and modify URLs
+function interceptNetworkRequests(token) {
+    const originalOpen = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function(method, url) {
+        if (url.startsWith('#')) {
+            url = url.replace('#', '#');
+        }
+        return originalOpen.apply(this, arguments);
+    };
+}
+
+// Function to setup JWPlayer
+function setupPlayer(videoUrl, widevineLicenseUrl) {
+    const playerInstance = jwplayer("player").setup({
+        controls: true,
+        sharing: true,
+        displaytitle: true,
+        autoplay: true,
+        displaydescription: true,
+        abouttext: "Video Player By TVBD",
+        aboutlink: "#",
+
+        skin: {
+            name: "netflix"
+        },
+
+        captions: {
+            color: "#FFF",
+            fontSize: 14,
+            backgroundOpacity: 0,
+            edgeStyle: "raised"
+        },
+
+        playlist: [
+            {
+                title: "Sony Pal",
+                description: "You're Watching",
+                sources: [
+                    {
+                        file: videoUrl,
+                        type: "hls",
+                        label: "1080p",
+                        default: true
+                    }
+                ]
+            }
+        ],
+        advertising: {
+            client: "vast",
+            schedule: [
+                {
+                    offset: "pre",
+                    tag: ""
+                }
+            ]
+        }
+    });
+
+    playerInstance.on("ready", function () {
+        const playerContainer = playerInstance.getContainer();
+        const buttonContainer = playerContainer.querySelector(".jw-button-container");
+        const spacer = buttonContainer.querySelector(".jw-spacer");
+        const timeSlider = playerContainer.querySelector(".jw-slider-time");
+        buttonContainer.replaceChild(timeSlider, spacer);
+
+        playerInstance.on("adBlock", () => {
+            const modal = document.querySelector("div.modal");
+            modal.style.display = "flex";
+
+            document.getElementById("close").addEventListener("click", () => location.reload());
+        });
+
+        const rewindContainer = playerContainer.querySelector(".jw-display-icon-rewind");
+        const forwardContainer = rewindContainer.cloneNode(true);
+        const forwardDisplayButton = forwardContainer.querySelector(".jw-icon-rewind");
+        forwardDisplayButton.style.transform = "scaleX(-1)";
+        forwardDisplayButton.ariaLabel = "Forward 10 Seconds";
+        const nextContainer = playerContainer.querySelector(".jw-display-icon-next");
+        nextContainer.parentNode.insertBefore(forwardContainer, nextContainer);
+
+        playerContainer.querySelector(".jw-display-icon-next").style.display = "none";
+        const rewindControlBarButton = buttonContainer.querySelector(".jw-icon-rewind");
+        const forwardControlBarButton = rewindControlBarButton.cloneNode(true);
+        forwardControlBarButton.style.transform = "scaleX(-1)";
+        forwardControlBarButton.ariaLabel = "Forward 10 Seconds";
+        rewindControlBarButton.parentNode.insertBefore(forwardControlBarButton, rewindControlBarButton.nextElementSibling);
+
+        [forwardDisplayButton, forwardControlBarButton].forEach((button) => {
+            button.onclick = () => {
+                playerInstance.seek(playerInstance.getPosition() + 10);
+            };
+        });
+    });
+}
+
+// Intercept network requests
+interceptNetworkRequests();
+
+// Setup player with the video URL
+setupPlayer(""+sv+"", null);
+</script>
+</body>
+</html>
+
